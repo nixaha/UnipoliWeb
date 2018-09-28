@@ -4,9 +4,11 @@
         HORARIOS
     </div>
     <div class="card-body">
-        <form class="form-inline">
-            <label class="my-1 mr-2 titulos" for="inlineFormCustomSelectPref">CARRERA:</label>
-            <select class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref">
+
+        <form #imageForm=ngForm (ngSubmit)="OnSubmit(Carrera, Grado, Grupo, Image)">
+            <form class="form-inline">
+                <label class="my-1 mr-2 titulos" for="inlineFormCustomSelectPref">CARRERA:</label>
+                <select clas #Carrera ngModel name="Carrera" class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option class="isw" value="1">Ing. En Software</option>
                       <option class="pymes" value="2">Lic. En Adm. De PyME's</option>
@@ -15,12 +17,12 @@
                       <option class="man" value="5">Ing. En Tec. De Manufactura</option>
                       <option class="redes" value="6">Ing. En Redes y Telecomunicacion</option>
                     </select>
-        </form>
-        <br>
-        <br>
-        <form class="form-inline">
-            <label class="my-1 mr-2 titulos" for="inlineFormCustomSelectPref">GRADO:</label>
-            <select class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref">
+            </form>
+            <br>
+            <br>
+            <form class="form-inline">
+                <label class="my-1 mr-2 titulos" for="inlineFormCustomSelectPref">GRADO:</label>
+                <select #Grado ngModel name="Grado" class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option class="grado" value="1">1°</option>
                       <option class="grado" value="2">2°</option>
@@ -32,12 +34,12 @@
                       <option class="grado" value="5">8°</option>
                       <option class="grado" value="6">9°</option>
                     </select>
-        </form>
-        <br>
-        <br>
-        <form class="form-inline">
-            <label class="my-1 mr-2 titulos" for="inlineFormCustomSelectPref">GRUPO:</label>
-            <select class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref">
+            </form>
+            <br>
+            <br>
+            <form class="form-inline">
+                <label class="my-1 mr-2 titulos" for="inlineFormCustomSelectPref">GRUPO:</label>
+                <select #Grupo ngModel name="Grupo" class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option class="grado" value="1">A</option>
                       <option class="grado" value="2">B</option>
@@ -45,18 +47,16 @@
                       <option class="grado" value="4">D</option>
                       <option class="grado" value="5">E</option>
                     </select>
-        </form>
-        <br>
-        <br>
-        <form #imageForm=ngForm (ngSubmit)="OnSubmit(Image)">
+            </form>
+            <br>
+            <br>
             <img [src]="imageUrl" style="width: 250px;height: 200px">
             <input type="file" #Image accept="image/*" (change)="handleFileInput($event.target.files)">
-            <button type="submit" class="btn-large btn-submit btnsubir" [disabled]="Image.value=='' || !imageForm.valid">Subir</button>
+            <br>
+            <br>
+            <button type="submit" class="btn-large btn-submit btnsubir btn btn-block" [disabled]="Image.value=='' || !imageForm.valid">SUBIR</button>
         </form>
     </div>
-    <br>
-
-    <button type="submit" class="btn my-1">ENVIAR</button>
 </div>
 <div class="form-row align-items-center">
     <div class="col-auto my-1">

@@ -8,7 +8,7 @@ import { AuthService } from '../../servicios/auth.service';
   providers:[AuthService]
 })
 export class PrivadoPageComponent implements OnInit {
- imageUrl: string = "/assets/img/defaul.png";
+ imageUrl: string = "/assets/img/default.png";
  fileToUpload: File = null;
 
 
@@ -27,13 +27,16 @@ export class PrivadoPageComponent implements OnInit {
     reader.readAsDataURL(this.fileToUpload);
   }
 
-  OnSubmit(Image){
-    this.imageService.postFile(this.fileToUpload).subscribe(
+  OnSubmit(Carrera, Grado, Grupo, Image){
+    this.imageService.postFile(Carrera.value,Grado.value, Grupo.value,this.fileToUpload).subscribe(
       data =>{
         console.log('done');
+        Carrera.value = null;
+        Grado.value = null;
+        Grupo.value = null;
         Image.value = null;
       }
-    )
+    );
   }
   
 

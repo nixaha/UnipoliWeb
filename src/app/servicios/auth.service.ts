@@ -35,10 +35,13 @@ export class AuthService {
     return this.afAuth.auth.signOut();
   }
 
-  postFile(fileToUpload: File){
-    const endpoint = 'http://localhost:4200/privado';
+  postFile(Carrera:string, Grado:string, Grupo:string, fileToUpload: File){
+    const endpoint = 'http://localhost:4200/home';
     const formData: FormData = new FormData();
     formData.append('Image', fileToUpload, fileToUpload.name);
+    formData.append('ImageCarrera', Carrera);
+    formData.append('ImageGrado', Grado);
+    formData.append('ImageGrupo', Grupo);
     return this.http
     .post(endpoint, formData);
   }
