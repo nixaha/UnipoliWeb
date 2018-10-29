@@ -53,3 +53,41 @@
                 font-size: 16px;
                 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
             }
+            
+            .container {
+                height: 100%;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                .item {
+                    padding: 24px;
+                    margin: 0 auto;
+                }
+                .footer {
+                    position: absolute;
+                    bottom: 0;
+                    background: #F0F0F0;
+                    width: 100%;
+                    padding: 24px;
+                    text-align: center;
+                    font-size: 1em;
+                    color: rgba($color: #000, $alpha: .7);
+                    a {
+                        font-size: 1em;
+                    }
+                }
+            }
+            
+            .hidden {
+                display: none;
+            }
+            
+            a {
+                color: #1976D2;
+                font-size: .8em;
+                margin-top: 16px;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }

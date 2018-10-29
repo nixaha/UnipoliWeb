@@ -1,7 +1,17 @@
-<div class="jumbotron mt-3">
-    <h1 class="display-3">INICIO, ZONA PRIVADA!</h1>
-    <hr class="my-4">
-    <p class="lead">
-        <a class="btn btn-danger btn-lg" href="#" role="button">Aprende mas</a>
-    </p>
+<div class="card text-center">
+    <div class="card-header">
+        HORARIOS
+    </div>
+    <div class="card" *ngFor="let horario of horarios | async">
+        <img class="card-img-top" src="{{horario.img}}">
+        <div class="card-body">
+            <h2 class="card-title">{{horario.carrera}}</h2>
+            <p class="card-text">{{horario.grado}}</p>
+            <p class="card-text">{{horario.grupo}}</p>
+        </div>
+    </div>
+    <button type="button" class="btn btn-danger btn-lg btn-block" routerLink="/privado">Agragar Horario</button>
 </div>
+
+<div class="form-row align-items-center">
+    <div class="col-auto my-1">

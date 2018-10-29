@@ -1,7 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule, MatProgressBarModule } from '@angular/material';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,11 +20,15 @@ import {FlashMessagesService} from 'angular2-flash-messages';
 
 import {AngularFireModule} from 'angularfire2';
 import {AngularFireAuthModule} from 'angularfire2/auth';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import { FirestoreService } from './firestore.service';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 import {environment} from '../environments/environment';
 
 import { AuthService } from './servicios/auth.service';
 import {AuthGuard } from './guards/auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -38,11 +45,16 @@ import {AuthGuard } from './guards/auth.guard';
     AppRoutingModule,
     FormsModule,
     AngularFireAuthModule,
+    ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     FlashMessagesModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
+    MatProgressBarModule,
+    AngularFireStorageModule,
   ],
-  providers: [AuthService, AuthGuard, FlashMessagesService],
+  providers: [AuthService, AuthGuard, FlashMessagesService, FirestoreService, AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
