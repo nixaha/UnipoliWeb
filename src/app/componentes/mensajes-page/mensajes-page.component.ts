@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Mensajes2PageComponent } from '../../componentes/mensajes2-page/mensajes2-page.component';
 import {Router} from '@angular/router';
 
 @Component({
@@ -8,8 +7,6 @@ import {Router} from '@angular/router';
   styleUrls: ['./mensajes-page.component.scss']
 })
 export class MensajesPageComponent implements OnInit {
-  mensaje2:any = Mensajes2PageComponent;
-
   title: string = '';
   desc: string = '';
 
@@ -19,7 +16,7 @@ export class MensajesPageComponent implements OnInit {
   }
   send(){
     console.log(this.title, this.desc);
-    this.router.navigateByUrl('msj2', {'title': this.title,'desc': this.desc});
+    this.router.navigateByUrl('msj2');
   }
 
   

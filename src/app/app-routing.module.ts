@@ -6,7 +6,6 @@ import {LoginPageComponent} from './componentes/login-page/login-page.component'
 import {RegisterPageComponent} from './componentes/register-page/register-page.component';
 import {PrivadoPageComponent} from './componentes/privado-page/privado-page.component';
 import {MensajesPageComponent} from './componentes/mensajes-page/mensajes-page.component';
-import { Mensajes2PageComponent } from './componentes/mensajes2-page/mensajes2-page.component';
 import {NotFoundPageComponent} from './componentes/not-found-page/not-found-page.component';
 
 
@@ -18,7 +17,6 @@ const routes: Routes = [
   {path: 'register', component: RegisterPageComponent},
   {path: 'hor', component: PrivadoPageComponent, canActivate:[AuthGuard]},
   {path: 'msj', component: MensajesPageComponent, canActivate:[AuthGuard]},
-  {path: 'msj2', component: Mensajes2PageComponent, canActivate:[AuthGuard]},
   {path: '**', component: NotFoundPageComponent}
 ];
 

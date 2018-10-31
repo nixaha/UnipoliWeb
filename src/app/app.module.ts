@@ -15,7 +15,6 @@ import { LoginPageComponent } from './componentes/login-page/login-page.componen
 import { PrivadoPageComponent } from './componentes/privado-page/privado-page.component';
 import { NotFoundPageComponent } from './componentes/not-found-page/not-found-page.component';
 import { MensajesPageComponent } from './componentes/mensajes-page/mensajes-page.component';
-import { Mensajes2PageComponent } from './componentes/mensajes2-page/mensajes2-page.component';
 
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import {FlashMessagesService} from 'angular2-flash-messages';
@@ -43,8 +42,7 @@ import {AuthGuard } from './guards/auth.guard';
     LoginPageComponent,
     PrivadoPageComponent,
     NotFoundPageComponent,
-    MensajesPageComponent,
-    Mensajes2PageComponent
+    MensajesPageComponent
   ],
   imports: [
     BrowserModule,
