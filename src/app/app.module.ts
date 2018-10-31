@@ -14,6 +14,8 @@ import { RegisterPageComponent } from './componentes/register-page/register-page
 import { LoginPageComponent } from './componentes/login-page/login-page.component';
 import { PrivadoPageComponent } from './componentes/privado-page/privado-page.component';
 import { NotFoundPageComponent } from './componentes/not-found-page/not-found-page.component';
+import { MensajesPageComponent } from './componentes/mensajes-page/mensajes-page.component';
+import { Mensajes2PageComponent } from './componentes/mensajes2-page/mensajes2-page.component';
 
 import {FlashMessagesModule} from 'angular2-flash-messages';
 import {FlashMessagesService} from 'angular2-flash-messages';
@@ -30,6 +32,8 @@ import { AuthService } from './servicios/auth.service';
 import {AuthGuard } from './guards/auth.guard';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,7 +42,9 @@ import {AuthGuard } from './guards/auth.guard';
     RegisterPageComponent,
     LoginPageComponent,
     PrivadoPageComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    MensajesPageComponent,
+    Mensajes2PageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,70 @@
+<br>
+<div class="card text-center">
+    <div class="card-header">
+        Mensajes
+    </div>
+    <div class="card-body">
+
+        <div class="card-header">
+            Dirigido al alumnado de:
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text software">
+                    <label>Ing. Software</label>
+                    <input type="checkbox" aria-label="Checkbox for following text input" checked="false" [(ngModel)]="software" color="purpura">
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text pymes">
+                    <label>Lic. En Adm. De PyME's</label>
+                    <input type="checkbox" aria-label="Checkbox for following text input" checked="false" [(ngModel)]="pymes" color="rojo">
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text ambiental">
+                    <label>Ing. En Tec. Ambiental</label>
+                    <input type="checkbox" aria-label="Checkbox for following text input" checked="false" [(ngModel)]="ambiental" color="secondary">
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text civil">
+                    <label>Ing. Civil</label>
+                    <input type="checkbox" aria-label="Checkbox for following text input" checked="false" [(ngModel)]="civil" color="amarillo">
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text manufactura">
+                    <label>Ing. En Tec. De Manufactura</label>
+                    <input type="checkbox" aria-label="Checkbox for following text input" checked="false" [(ngModel)]="manufactura" color="naranja">
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <div class="input-group-text redes">
+                    <label> Ing. En Redes y Telecomunicacion</label>
+                    <input type="checkbox" aria-label="Checkbox for following text input" checked="false" [(ngModel)]="telematica" color="azul">
+                </div>
+            </div>
+        </div>
+        <button type="button" (click)="scheduleNotification(carrera)" class="enviar btn-block btn-danger " round>ENVIAR</button>
+
+    </div>
+</div>
+<div class="form-row align-items-center">
+    <div class="col-auto my-1">

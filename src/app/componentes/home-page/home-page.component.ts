@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Observable } from 'rxjs';  
 import { map } from 'rxjs/operators';
 import {AuthService } from '../../servicios/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-home-page',
@@ -13,7 +14,7 @@ import {AuthService } from '../../servicios/auth.service';
 export class HomePageComponent implements OnInit {
   
   
-  constructor() { 
+  constructor(private router: Router) { 
     /*/ Create a root reference
 var storageRef = firebase.storage().ref();
 
@@ -84,5 +85,9 @@ uploadTask.cancel();*/
   }
 
   ngOnInit() {
+  }
+
+  send(){
+    this.router.navigateByUrl('hor');
   }
 }

@@ -6,10 +6,10 @@
     <div class="card-body">
 
         <form (ngSubmit)="newHorario(newHorarioForm.value)" [formGroup]="newHorarioForm">
-        <!--form #imageForm=ngForm (ngSubmit)="OnSubmit(Carrera, Grado, Grupo, Image)"-->
-        <form class="form-inline">
-            <label class="my-1 mr-2 titulos" for="inlineFormCustomSelectPref">CARRERA:</label>
-            <select clas #Carrera ngModel name="Carrera" class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref" formControlName="carrera">
+            <!--form #imageForm=ngForm (ngSubmit)="OnSubmit(Carrera, Grado, Grupo, Image)"-->
+            <form class="form-inline">
+                <label class="my-1 mr-2 titulos" for="inlineFormCustomSelectPref">CARRERA:</label>
+                <select clas #Carrera ngModel name="Carrera" class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref" formControlName="carrera">
                       <option selected>Choose...</option>
                       <option class="isw" value="1">Ing. En Software</option>
                       <option class="pymes" value="2">Lic. En Adm. De PyME's</option>
@@ -18,12 +18,12 @@
                       <option class="man" value="5">Ing. En Tec. De Manufactura</option>
                       <option class="redes" value="6">Ing. En Redes y Telecomunicacion</option>
                     </select>
-        </form>
-        <br>
-        <br>
-        <form class="form-inline">
-            <label class="my-1 mr-2 titulos" for="inlineFormCustomSelectPref">GRADO:</label>
-            <select #Grado ngModel name="Grado" class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref">
+            </form>
+            <br>
+            <br>
+            <form class="form-inline">
+                <label class="my-1 mr-2 titulos" for="inlineFormCustomSelectPref">GRADO:</label>
+                <select #Grado ngModel name="Grado" class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option class="grado" value="1">1°</option>
                       <option class="grado" value="2">2°</option>
@@ -35,12 +35,12 @@
                       <option class="grado" value="5">8°</option>
                       <option class="grado" value="6">9°</option>
                     </select>
-        </form>
-        <br>
-        <br>
-        <form class="form-inline">
-            <label class="my-1 mr-2 titulos" for="inlineFormCustomSelectPref">GRUPO:</label>
-            <select #Grupo ngModel name="Grupo" class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref">
+            </form>
+            <br>
+            <br>
+            <form class="form-inline">
+                <label class="my-1 mr-2 titulos" for="inlineFormCustomSelectPref">GRUPO:</label>
+                <select #Grupo ngModel name="Grupo" class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref">
                       <option selected>Choose...</option>
                       <option class="grado" value="1">A</option>
                       <option class="grado" value="2">B</option>
@@ -48,13 +48,13 @@
                       <option class="grado" value="4">D</option>
                       <option class="grado" value="5">E</option>
                     </select>
-        </form>
-        <br>
-        <br>
-        
+            </form>
+            <br>
+            <br>
+
             <div class="container">
                 <mat-progress-bar [value]="uploadProgress | async"></mat-progress-bar>
-                <div class="item">
+                <div class="item center-block">
                     Progress: {{ (uploadProgress | async) / 100 | percent }}
                 </div>
                 <div class="item" style="max-width: 600px">
@@ -63,15 +63,15 @@
                     {{ uploadURL |async }}
                   </span>
                     </section>
-                    <section *ngIf="uploadURL && (uploadURL | async) !== null && (uploadURL | async).length">
+                    <section class="center-block" *ngIf="uploadURL && (uploadURL | async) !== null && (uploadURL | async).length">
                         <a [href]="uploadURL | async" target="_blank">Abrir imagen!</a>
                     </section>
                 </div>
                 <div class="item">
-                    <input #inputFile class="hidden" type="file" (change)="upload($event)" accept="image/*" formControlName="img">
-                    <button class="btnsubir" mat-raised-button (click)="inputFile.click()">SUBIR</button>
+                    <input #inputFile (click)="inputFile.click()" class="hidden" class="btnselec" type="file" (change)="upload($event)" accept="image/*" formControlName="img">
                 </div>
-                <input type="submit" class="btn--blue btn--add" [disabled]="!newHorarioForm.valid">
+                <button type="submit" class="enviar btn-block btn-danger " [disabled]="!newHorarioForm.valid" round>ENVIAR</button>
+
             </div>
         </form>
         <!--/form-->

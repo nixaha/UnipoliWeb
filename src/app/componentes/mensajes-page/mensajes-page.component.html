@@ -1,0 +1,23 @@
+<br>
+<div class="card text-center">
+    <div class="card-header">
+        Mensajes
+    </div>
+    <div class="card-body">
+        <form>
+
+            <label class="label">Escribe el Mensaje</label>
+            <div class="form-group">
+                <input [(ngModel)]="title" type="text" placeholder="Titulo" class="tit"><b></b>
+            </div>
+
+            <div class="form-group">
+                <textarea [(ngModel)]="desc" type="text" placeholder="Descripción" class="desc"></textarea>
+            </div>
+
+            <button type="button" class="enviar btn-block btn-danger" (click)="send()" round>SIGUIENTE</button>
+        </form>
+    </div>
+</div>
+<div class="form-row align-items-center">
+    <div class="col-auto my-1">
