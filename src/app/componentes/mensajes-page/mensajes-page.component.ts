@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-mensajes-page',
@@ -10,7 +13,111 @@ export class MensajesPageComponent implements OnInit {
   title: string = '';
   desc: string = '';
 
-  constructor(private router: Router) { }
+  titulo: string = '';
+  descripcion: string = '';
+  carrera: string = '';
+
+  constructor(private router: Router, private readonly afs: AngularFirestore) {  
+    this.carrera = this.navParams.get('carrera');
+
+  switch (this.carrera) {
+    case "ambiental": {
+      this.noticiasCollection = afs.collection<MensajeISW>("MensajeAmbiental");
+      this.noticias = this.noticiasCollection.snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as MensajeISW;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
+      break;
+    }
+    case "software": {
+      this.noticiasCollection = afs.collection<MensajeISW>("MensajesSoftware");
+      this.noticias = this.noticiasCollection.snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as MensajeISW;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
+      break;
+    }
+    case "pymes": {
+      this.noticiasCollection = afs.collection<MensajeISW>("MensajesPymes");
+      this.noticias = this.noticiasCollection.snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as MensajeISW;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
+      break;
+    }
+    case "manufactura": {
+      this.noticiasCollection = afs.collection<MensajeISW>("MensajesManufactura");
+      this.noticias = this.noticiasCollection.snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as MensajeISW;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
+      break;
+    }
+    case "civil": {
+      this.noticiasCollection = afs.collection<MensajeISW>("MensajesCivil");
+      this.noticias = this.noticiasCollection.snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as MensajeISW;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
+      break;
+    }
+    case "telematica": {
+      this.noticiasCollection = afs.collection<MensajeISW>("MensajesTelematica");
+      this.noticias = this.noticiasCollection.snapshotChanges().pipe(
+        map(actions => actions.map(a => {
+          const data = a.payload.doc.data() as MensajeISW;
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        }))
+      );
+      break;
+    }
+  }
+
+  try {
+    this.titulo = this.navParams.get('titulo');
+    this.descripcion = this.navParams.get('descripcion');
+
+    console.log(this.titulo);
+
+    if (this.titulo != "") {
+
+
+      const id = this.afs.createId();
+      const noticia: MensajeISW = { 'titulo': this.titulo, 'descripcion': this.descripcion, 'foto': RUTA };
+      this.noticiasCollection.doc(id).set(noticia);
+      this.navCtrl.push(VerDetallesPage, {
+        id: noticia
+      });
+    }
+
+  } catch{
+    console.log("Algo salió mal...");
+
+  }
+}
+
+detalles(_noticia: MensajeISW) {
+  this.navCtrl.push(VerDetallesPage, {
+    id: _noticia
+  })
+
+}
 
   ngOnInit() {
   }
@@ -18,7 +125,4 @@ export class MensajesPageComponent implements OnInit {
     console.log(this.title, this.desc);
     this.router.navigateByUrl('msj2');
   }
-
-  
-
 }
