@@ -4,12 +4,32 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+export interface Mensaje { titulo: string; descripcion: string; }
+
 @Component({
   selector: 'app-mensajes-page',
   templateUrl: './mensajes-page.component.html',
   styleUrls: ['./mensajes-page.component.scss']
 })
 export class MensajesPageComponent implements OnInit {
+
+  private mensajesCollection: AngularFirestoreCollection<Mensaje>;
+  mensajes: Observable<Mensaje[]>;
+  titulo: any;
+  desc: any;
+
+  constructor(private readonly afs: AngularFirestore) {
+    this.mensajesCollection = afs.collection<Mensaje>('mensajes');
+    this.mensajes = this.mensajesCollection.valueChanges();
+    const id = this.afs.createId();
+    const mensaje: Mensaje = { titulo : this.titulo, descripcion : this.desc, };
+    this.mensajesCollection.doc(id).set(mensaje);
+  }
+
+  ngOnInit() {
+  }
+
+  /*
   title: string = '';
   desc: string = '';
 
@@ -124,5 +144,5 @@ detalles(_noticia: MensajeISW) {
   send(){
     console.log(this.title, this.desc);
     this.router.navigateByUrl('msj2');
-  }
+  }*/
 }
