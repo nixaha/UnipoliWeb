@@ -8,11 +8,23 @@
 
             <label class="label">Escribe el Mensaje</label>
             <div class="form-group">
-                <input [(ngModel)]="title" type="text" placeholder="Titulo" class="tit"><b></b>
+                <input [(ngModel)]="msj.title" name="input_titulo" type="text" placeholder="Titulo" class="tit"><b></b>
             </div>
 
             <div class="form-group">
-                <textarea [(ngModel)]="desc" type="text" placeholder="Descripción" class="desc"></textarea>
+                <textarea [(ngModel)]="msj.desc" type="text" placeholder="Descripción" class="desc"></textarea>
+            </div>
+
+            <div class="form-group">
+
+            <input #title (keyup.enter)="update(title.value)" (blur)="update(title.value)">
+               
+            </div>
+
+            <div class="form-group">
+
+            <input #desc (keyup.enter)="update(desc.value)" (blur)="update(desc.value)">
+                       
             </div>
 
             <div class="card-header">
@@ -73,6 +85,7 @@
                 </div>
             </div>
             <button type="button" (click)="scheduleNotification(carrera)" class="enviar btn-block btn-danger " round>ENVIAR</button>
+            <button type="button" (click)="update(title.value, desc.value)" class="enviar btn-block btn-danger " round>PUBLICAR</button>
         </form>
     </div>
 </div>

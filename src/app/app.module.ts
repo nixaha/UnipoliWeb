@@ -57,6 +57,7 @@ import {AuthGuard } from './guards/auth.guard';
     BrowserAnimationsModule,
     MatProgressBarModule,
     AngularFireStorageModule,
+    FormsModule
   ],
   providers: [AuthService, AuthGuard, FlashMessagesService, FirestoreService, AngularFirestore],
   bootstrap: [AppComponent]

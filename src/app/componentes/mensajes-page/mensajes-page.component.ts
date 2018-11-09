@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
+
+
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -13,21 +15,29 @@ export interface Mensaje { titulo: string; descripcion: string; }
 })
 export class MensajesPageComponent implements OnInit {
 
-  private mensajesCollection: AngularFirestoreCollection<Mensaje>;
+  // private mensajesCollection: AngularFirestoreCollection<Mensaje>;
   mensajes: Observable<Mensaje[]>;
-  titulo: any;
-  desc: any;
+  msj: any = '';
+  title = '';
+  description = '';
 
   constructor(private readonly afs: AngularFirestore) {
-    this.mensajesCollection = afs.collection<Mensaje>('mensajes');
-    this.mensajes = this.mensajesCollection.valueChanges();
-    const id = this.afs.createId();
-    const mensaje: Mensaje = { titulo : this.titulo, descripcion : this.desc, };
-    this.mensajesCollection.doc(id).set(mensaje);
-  }
+    }
 
   ngOnInit() {
-  }
+    // this.mensajesCollection = afs.collection<Mensaje>('mensajes');
+    // this.mensajes = this.mensajesCollection.valueChanges();
+    // const mensaje: Mensaje = { titulo : this.titulo, descripcion : this.desc };
+    // this.afs.collection('mensajes').doc(id).set(mensaje);
+    }
+
+  update(title: string, description: string) {
+     this.title = title;
+     this.description = description;
+     console.log(this.description, this.title);
+     const id = this.afs.createId();
+     this.afs.collection('mensajes').doc(id).set({titulo : this.title, descripcion : this.description} );
+    }
 
   /*
   title: string = '';
