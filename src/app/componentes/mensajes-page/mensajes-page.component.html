@@ -7,24 +7,17 @@
         <form>
 
             <label class="label">Escribe el Mensaje</label>
-            <div class="form-group">
-                <input [(ngModel)]="msj.title" name="input_titulo" type="text" placeholder="Titulo" class="tit"><b></b>
-            </div>
-
-            <div class="form-group">
-                <textarea [(ngModel)]="msj.desc" type="text" placeholder="Descripción" class="desc"></textarea>
-            </div>
 
             <div class="form-group">
 
-            <input #title (keyup.enter)="update(title.value)" (blur)="update(title.value)">
-               
+                <input #title (keyup.enter)="update(title.value)" (blur)="update(title.value)" class="tit">
+
             </div>
 
             <div class="form-group">
 
-            <input #desc (keyup.enter)="update(desc.value)" (blur)="update(desc.value)">
-                       
+                <input #desc (keyup.enter)="update(desc.value)" (blur)="update(desc.value)" class="desc">
+
             </div>
 
             <div class="card-header">
@@ -90,4 +83,4 @@
     </div>
 </div>
 <div class="form-row align-items-center">
-    <div class="col-auto my-1">
+    <div class="col-auto my-1"
