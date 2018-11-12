@@ -8,13 +8,6 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
-.enviar {
-    color: white;
-    height: 40px;
-    font-size: 18px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-
 .tit {
     width: 700px;
 }
@@ -35,38 +28,64 @@
 }
 
 .software {
+    position: relative;
     border: 6px solid purple;
     color: black;
+    width: 240px;
+    top: 5px;
+    left: 120px;
 }
 
 .pymes {
+    position: relative;
     border: 6px solid red;
     color: black;
+    width: 240px;
+    top: -60px;
+    left: 420px;
 }
 
 .ambiental {
+    position: relative;
     border: 6px solid green;
     color: black;
+    width: 240px;
+    top: -126px;
+    left: 720px;
 }
 
 .civil {
+    position: relative;
     border: 6px solid yellow;
     color: black;
+    width: 240px;
+    top: -125px;
+    left: 120px;
 }
 
 .manufactura {
+    position: relative;
     border: 6px solid orange;
     color: black;
+    width: 240px;
+    top: -191px;
+    left: 420px;
 }
 
 .redes {
+    position: relative;
     border: 6px solid blue;
     color: black;
+    width: 240px;
+    top: -257px;
+    left: 720px;
 }
 
 .enviar {
+    position: relative;
+    top: -235px;
     color: white;
     height: 40px;
     font-size: 18px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 1
 }
