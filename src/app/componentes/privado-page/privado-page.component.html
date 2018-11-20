@@ -69,6 +69,7 @@
                 </div>
 
                 <div class="item">
+                    <a [href]="uploadURL | async" target="_blank">Abrir imagen!</a>
                     <input #inputFile (click)="inputFile.click()" class="hidden" class="btnselec" type="file" (change)="upload($event)" accept="image/*" formControlName="img">
                 </div>
                 <button type="submit" class="enviar btn-block btn-danger " [disabled]="!newHorarioForm.valid" round>ENVIAR</button>

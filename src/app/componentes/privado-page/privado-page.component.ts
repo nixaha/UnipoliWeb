@@ -25,6 +25,7 @@ export class PrivadoPageComponent implements OnInit {
  uploadProgress: Observable<number>;
 
  uploadURL: Observable<string>;
+ data:any = '';
 
  private horariosCollection: AngularFirestoreCollection<Horario>;
  horarios: Observable<Horario[]>;
@@ -90,11 +91,11 @@ export class PrivadoPageComponent implements OnInit {
     this.uploadProgress = task.percentageChanges();
 
     // Get notified when the download URL is available
-    task.snapshotChanges().pipe(
-      finalize(() => this.uploadURL = fileRef.getDownloadURL())
+    task.snapshotChanges().pipe( finalize(() => this.uploadURL = fileRef.getDownloadURL())
     ).subscribe();
 
-    
+
+    console.log("llego algo", fileRef);
      /*const id = this.afs.createId();
      const horario: Horario = { 'img': this.uploadURL };
      this.horariosCollection.doc(id).set(horario);*/
@@ -104,6 +105,7 @@ export class PrivadoPageComponent implements OnInit {
   public newHorario(form ) {
     //const itemsRef = db.list('horarios');
     //itemsRef.push({ img: 'uploadURL' });
+
     let data = {
       img: form.img,
       carrera: form.carrera

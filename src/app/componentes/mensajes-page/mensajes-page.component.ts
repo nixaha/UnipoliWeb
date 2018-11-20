@@ -6,7 +6,7 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export interface Mensaje { titulo: string; descripcion: string; }
+export interface Mensaje { titulo: string; descripcion: string; fecha: Date; }
 
 @Component({
   selector: 'app-mensajes-page',
@@ -20,6 +20,13 @@ export class MensajesPageComponent implements OnInit {
   msj: any = '';
   title = '';
   description = '';
+  date = '';
+  swMsj = true;
+  irtMsj =true;
+  itamMsj =true;
+  pymesMsj =true;
+  civilMsj =true;
+  itmMsj =true;
 
   constructor(private readonly afs: AngularFirestore) {
     }
@@ -31,16 +38,62 @@ export class MensajesPageComponent implements OnInit {
     // this.afs.collection('mensajes').doc(id).set(mensaje);
     }
 
-  update(title: string, description: string) {
-    //var date = new date();
-    //console.log(date, "se supone que es la fecha")
+  update(title: string, description: string, fecha: Date) {
+    var date = new Date();
+    console.log(date, "se supone que es la fecha")
 
      this.title = title;
      this.description = description;
      console.log(this.description, this.title);
+     if (this.swMsj === true){
      const id = this.afs.createId();
-     this.afs.collection('mensajes').doc(id).set({titulo : this.title, descripcion : this.description} );
+     this.afs.collection('mensajesSW').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date} );
     }
+    if (this.irtMsj === true){
+      const id = this.afs.createId();
+      this.afs.collection('mensajesIrt').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date} );
+     }
+     if (this.itamMsj === true){
+      const id = this.afs.createId();
+      this.afs.collection('mensajesItam').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date} );
+     }
+     if (this.pymesMsj === true){
+      const id = this.afs.createId();
+      this.afs.collection('mensajesPymes').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date} );
+     }
+     if (this.civilMsj === true){
+      const id = this.afs.createId();
+      this.afs.collection('mensajesCivil').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date} );
+     }
+     if (this.itmMsj === true){
+      const id = this.afs.createId();
+      this.afs.collection('mensajesItm').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date} );
+     }
+  }
+  activateISW(e){
+    this.swMsj = e.target.checked;
+    console.log(this.swMsj);
+  }
+  activateIRT(e){
+    this.irtMsj = e.target.checked;
+    console.log(this.irtMsj);
+  }
+  activateITAM(e){
+    this.itamMsj = e.target.checked;
+    console.log(this.itamMsj);
+  }
+  activatePYMES(e){
+    this.pymesMsj = e.target.checked;
+    console.log(this.pymesMsj);
+  }
+  activateCIVIL(e){
+    this.civilMsj = e.target.checked;
+    console.log(this.civilMsj);
+  }
+  activateITM(e){
+    this.itmMsj= e.target.checked;
+    console.log(this.itmMsj);
+  }
 
   /*
   title: string = '';
