@@ -16,7 +16,7 @@
 
             <div class="form-group">
 
-                <input #desc (keyup.enter)="update(desc.value)" (blur)="update(desc.value)" class="desc">
+                <textarea #desc (keyup.enter)="update(desc.value)" (blur)="update(desc.value)" class="desc"></textarea>
 
             </div>
 
@@ -42,43 +42,43 @@
                 </div>
             </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text ambiental">
+            <div class="input-group mb-3 ">
+                <div class="input-group-prepend ">
+                    <div class="input-group-text ambiental ">
                         <label>Ing. En Tec. Ambiental</label>
                         <input type="checkbox" aria-label="Checkbox for following text input" checked="false" [(ngModel)]="ambiental" color="secondary">
                     </div>
                 </div>
             </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text civil">
+            <div class="input-group mb-3 ">
+                <div class="input-group-prepend ">
+                    <div class="input-group-text civil ">
                         <label>Ing. Civil</label>
                         <input type="checkbox" aria-label="Checkbox for following text input" checked="false" [(ngModel)]="civil" color="amarillo">
                     </div>
                 </div>
             </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text manufactura">
+            <div class="input-group mb-3 ">
+                <div class="input-group-prepend ">
+                    <div class="input-group-text manufactura ">
                         <label>Ing. En Tec. De Manufactura</label>
                         <input type="checkbox" aria-label="Checkbox for following text input" checked="false" [(ngModel)]="manufactura" color="naranja">
                     </div>
                 </div>
             </div>
 
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <div class="input-group-text redes">
+            <div class="input-group mb-3 ">
+                <div class="input-group-prepend ">
+                    <div class="input-group-text redes ">
                         <label> Ing. En Redes y Telecomunicacion</label>
                         <input type="checkbox" aria-label="Checkbox for following text input" checked="false" [(ngModel)]="telematica" color="azul">
                     </div>
                 </div>
             </div>
-            <!--button type="button" (click)="scheduleNotification(carrera)" class="enviar btn-block btn-danger " round>ENVIAR</button-->
-            <button type="button" (click)="update(title.value, desc.value)" class="enviar btn-block btn-danger " round>PUBLICAR</button>
+            <!--button type="button " (click)="scheduleNotification(carrera) " class="enviar btn-block btn-danger " round>ENVIAR</button-->
+            <button type="button " (click)="update(title.value, desc.value) " class="enviar btn-block btn-danger " round>PUBLICAR</button>
         </form>
     </div>
 </div>

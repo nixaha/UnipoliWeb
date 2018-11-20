@@ -32,6 +32,9 @@ export class MensajesPageComponent implements OnInit {
     }
 
   update(title: string, description: string) {
+    //var date = new date();
+    //console.log(date, "se supone que es la fecha")
+
      this.title = title;
      this.description = description;
      console.log(this.description, this.title);

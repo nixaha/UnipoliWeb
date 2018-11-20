@@ -9,7 +9,8 @@ import { finalize } from 'rxjs/operators';
 
 //plugins angularfire2
 import { Horario } from '../../../commons/horario';
-import {AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore'; 
+import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+//import { AngularFireDatabase} from 'angularfire2/database'; 
 
 @Component({
   selector: 'app-privado-page',
@@ -20,7 +21,6 @@ import {AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firest
 export class PrivadoPageComponent implements OnInit {
  //imageUrl: string = "/assets/img/default.png";
  //fileToUpload: File = null;
- 
 
  uploadProgress: Observable<number>;
 
@@ -30,8 +30,7 @@ export class PrivadoPageComponent implements OnInit {
  horarios: Observable<Horario[]>;
  public newHorarioForm = new FormGroup({
   img: new FormControl(''),
-  carrera: new FormControl('')
-  
+  carrera: new FormControl('') 
 });
 
   constructor(/*private imageService: AuthService,*/ private _storage: AngularFireStorage,
@@ -43,6 +42,7 @@ export class PrivadoPageComponent implements OnInit {
                   carrera:''
                 });
 
+        
                // this.horariosCollection = afs.collection<Horario>('horarios');
               }
 
@@ -94,12 +94,16 @@ export class PrivadoPageComponent implements OnInit {
       finalize(() => this.uploadURL = fileRef.getDownloadURL())
     ).subscribe();
 
+    
      /*const id = this.afs.createId();
      const horario: Horario = { 'img': this.uploadURL };
      this.horariosCollection.doc(id).set(horario);*/
+    
   }
-  public newHorario(form, uploadURL = this.uploadURL) {
 
+  public newHorario(form ) {
+    //const itemsRef = db.list('horarios');
+    //itemsRef.push({ img: 'uploadURL' });
     let data = {
       img: form.img,
       carrera: form.carrera
@@ -114,8 +118,9 @@ export class PrivadoPageComponent implements OnInit {
       }, (error) => {
         console.error(error);
       });
-    }
-  }
+
+}
+}
   
 
 
