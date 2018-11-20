@@ -28,7 +28,12 @@
                 <div class="input-group-prepend">
                     <div class="input-group-text software">
                         <label>Ing. Software</label>
-                        <input type="checkbox" aria-label="Checkbox for following text input" checked="false" [(ngModel)]="software" color="purpura">
+                        <input type="checkbox" 
+                        aria-label="Checkbox for following text input" 
+                        checked="false" 
+                        [(ngModel)]="software"
+                        data-md-icheck (change) = "activateISW($event)" 
+                        color="purpura"/>
                     </div>
                 </div>
             </div>

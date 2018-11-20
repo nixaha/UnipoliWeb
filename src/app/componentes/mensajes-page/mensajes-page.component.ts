@@ -20,6 +20,12 @@ export class MensajesPageComponent implements OnInit {
   msj: any = '';
   title = '';
   description = '';
+  swMsj = true;
+  irtMsj = true;
+  itamMsj = true;
+  pymesMsj = true;
+  civilMsj = true;
+  itmMsj = true;
 
   constructor(private readonly afs: AngularFirestore) {
     }
@@ -35,9 +41,15 @@ export class MensajesPageComponent implements OnInit {
      this.title = title;
      this.description = description;
      console.log(this.description, this.title);
-     const id = this.afs.createId();
-     this.afs.collection('mensajes').doc(id).set({titulo : this.title, descripcion : this.description} );
-    }
+     if (this.swMsj === true) {
+      const id = this.afs.createId();
+      this.afs.collection('mensajes').doc(id).set({titulo : this.title, descripcion : this.description} );
+     }
+  }
+  activateISW(e) {
+    this.swMsj = e.target.checked;
+    console.log(this.swMsj);
+  }
 
   /*
   title: string = '';
