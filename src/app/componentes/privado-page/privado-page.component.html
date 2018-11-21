@@ -10,13 +10,13 @@
             <form class="form-inline">
                 <label class="my-1 mr-2 titulos" for="carrera">CARRERA:</label>
                 <select clas #Carrera ngModel type="selected" class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref" formControlName="carrera">
-                      <option selected>Choose...</option>
-                      <option class="isw" value="1">Ing. En Software</option>
-                      <option class="pymes" value="2">Lic. En Adm. De PyME's</option>
-                      <option class="amb" value="3">Ing. En Tec. Ambiental</option>
-                      <option class="civil" value="4">Ing. Civil</option>
-                      <option class="man" value="5">Ing. En Tec. De Manufactura</option>
-                      <option class="redes" value="6">Ing. En Redes y Telecomunicacion</option>
+                      <option selected>Selecciona una carrera</option>
+                      <option class="isw" value="1">Ing. en software</option>
+                      <option class="redes" value="2">Ing. en redes y telecomunicaciones</option>
+                      <option class="amb" value="3">Ing. en tecnología ambiental</option>
+                      <option class="man" value="4">Ing. en tecnologías de manufactura</option>
+                      <option class="civil" value="5">Ing. civil</option>
+                      <option class="pymes" value="6">Ing. En Redes y Telecomunicacion</option>
                     </select>
             </form>
             <br>
@@ -24,7 +24,7 @@
             <form class="form-inline">
                 <label class="my-1 mr-2 titulos" for="grado">GRADO:</label>
                 <select #Grado ngModel type="selected" class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref" formControlName="grado">
-                      <option selected>Choose...</option>
+                      <option selected>Selecciona un grado</option>
                       <option class="grado" value="1">1°</option>
                       <option class="grado" value="2">2°</option>
                       <option class="grado" value="3">3°</option>
@@ -41,7 +41,7 @@
             <form class="form-inline">
                 <label class="my-1 mr-2 titulos" for="grupo">GRUPO:</label>
                 <select #Grupo ngModel type=selected class="custom-select my-1 mr-sm-2 selbtn" id="inlineFormCustomSelectPref" formControlName="grupo">
-                      <option selected>Choose...</option>
+                      <option selected>Selecciona un grupo</option>
                       <option class="grado" value="1">A</option>
                       <option class="grado" value="2">B</option>
                       <option class="grado" value="3">C</option>
@@ -55,7 +55,7 @@
             <div class="container">
                 <mat-progress-bar [value]="uploadProgress | async"></mat-progress-bar>
                 <div class="item center-block">
-                    Progress: {{ (uploadProgress | async) / 100 | percent }}
+                    Progreso: {{ (uploadProgress | async) / 100 | percent }}
                 </div>
                 <div class="item" style="max-width: 600px">
                     <section>

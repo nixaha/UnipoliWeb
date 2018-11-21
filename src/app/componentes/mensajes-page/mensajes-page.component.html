@@ -1,12 +1,12 @@
 <br>
 <div class="card text-center">
-    <div class="card-header">
+    <div class="card-header msj">
         Mensajes
     </div>
     <div class="card-body">
         <form>
 
-            <label class="label">Escribe el Mensaje</label>
+            <label class="label">Escribe el mensaje</label>
 
             <div class="form-group">
 
@@ -20,14 +20,14 @@
 
             </div>
 
-            <div class="card-header">
+            <div class="card-header dir">
                 Dirigido al alumnado de:
             </div>
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <div class="input-group-text software">
-                        <label>Ing. Software</label>
+                        <label>Ing. en software</label>
                         <input type="checkbox" aria-label="Checkbox for following text input" checked="false" data-md-icheck (change)="activateISW($event)" color="purpura">
                     </div>
                 </div>
@@ -35,9 +35,9 @@
 
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <div class="input-group-text pymes">
-                        <label>Lic. En Adm. De PyME's</label>
-                        <input type="checkbox" aria-label="Checkbox for following text input" checked="false" data-md-icheck (change)="activatePYMES($event)" color="rojo">
+                    <div class="input-group-text redes">
+                        <label>Ing. en redes y telecomunicaciones</label>
+                        <input type="checkbox" aria-label="Checkbox for following text input" checked="false" data-md-icheck (change)="activateIRT($event)" color="azul">
                     </div>
                 </div>
             </div>
@@ -45,7 +45,7 @@
             <div class="input-group mb-3 ">
                 <div class="input-group-prepend ">
                     <div class="input-group-text ambiental ">
-                        <label>Ing. En Tec. Ambiental</label>
+                        <label>Ing. en tecnología ambiental</label>
                         <input type="checkbox" aria-label="Checkbox for following text input" checked="false" data-md-icheck (change)="activateITAM($event)" color="secondary">
                     </div>
                 </div>
@@ -53,17 +53,8 @@
 
             <div class="input-group mb-3 ">
                 <div class="input-group-prepend ">
-                    <div class="input-group-text civil ">
-                        <label>Ing. Civil</label>
-                        <input type="checkbox" aria-label="Checkbox for following text input" checked="false" data-md-icheck (change)="activateCIVIL($event)" color="amarillo">
-                    </div>
-                </div>
-            </div>
-
-            <div class="input-group mb-3 ">
-                <div class="input-group-prepend ">
                     <div class="input-group-text manufactura ">
-                        <label>Ing. En Tec. De Manufactura</label>
+                        <label>Ing. en tecnologías de manufactura</label>
                         <input type="checkbox" aria-label="Checkbox for following text input" checked="false" data-md-icheck (change)="activateITM($event)" color="naranja">
                     </div>
                 </div>
@@ -71,9 +62,18 @@
 
             <div class="input-group mb-3 ">
                 <div class="input-group-prepend ">
-                    <div class="input-group-text redes ">
-                        <label> Ing. En Redes y Telecomunicacion</label>
-                        <input type="checkbox" aria-label="Checkbox for following text input" checked="false" data-md-icheck (change)="activateIRT($event)" color="azul">
+                    <div class="input-group-text civil ">
+                        <label>Ing. civil</label>
+                        <input type="checkbox" aria-label="Checkbox for following text input" checked="false" data-md-icheck (change)="activateCIVIL($event)" color="amarillo">
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group mb-3 ">
+                <div class="input-group-prepend ">
+                    <div class="input-group-text pymes ">
+                        <label>Lic. en gestión y administración de empresas</label>
+                        <input type="checkbox" aria-label="Checkbox for following text input" checked="false" data-md-icheck (change)="activatePYMES($event)" color="rojo">
                     </div>
                 </div>
             </div>

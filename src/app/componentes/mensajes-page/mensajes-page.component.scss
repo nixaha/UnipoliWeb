@@ -1,91 +1,99 @@
-.card-header {
-    font-size: 24px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-
-.label {
-    font-size: 16px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-
-.tit {
-    width: 700px;
-}
-
-.desc {
-    width: 700px;
-    height: 330px;
-}
-
-.card-header {
-    font-size: 24px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-
-.card-header {
-    font-size: 16px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
-}
-
-.software {
-    position: relative;
-    border: 6px solid purple;
-    color: black;
-    width: 240px;
-    top: 5px;
-    left: 120px;
-}
-
-.pymes {
-    position: relative;
-    border: 6px solid red;
-    color: black;
-    width: 240px;
-    top: -60px;
-    left: 420px;
-}
-
-.ambiental {
-    position: relative;
-    border: 6px solid green;
-    color: black;
-    width: 240px;
-    top: -126px;
-    left: 720px;
-}
-
-.civil {
-    position: relative;
-    border: 6px solid yellow;
-    color: black;
-    width: 240px;
-    top: -125px;
-    left: 120px;
-}
-
-.manufactura {
-    position: relative;
-    border: 6px solid orange;
-    color: black;
-    width: 240px;
-    top: -191px;
-    left: 420px;
-}
-
-.redes {
-    position: relative;
-    border: 6px solid blue;
-    color: black;
-    width: 240px;
-    top: -257px;
-    left: 720px;
-}
-
-.enviar {
-    position: relative;
-    top: -235px;
-    color: white;
-    height: 40px;
-    font-size: 18px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 1
-}
+        .label {
+            font-size: 18px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
+        
+        .tit {
+            width: 700px;
+        }
+        
+        .desc {
+            width: 700px;
+            height: 330px;
+        }
+        
+        .software {
+            position: relative;
+            border: 6px solid purple;
+            color: black;
+            width: 351px;
+            top: 5px;
+            left: 155px;
+            font-size: 16px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        .pymes {
+            position: relative;
+            border: 6px solid red;
+            color: black;
+            width: 351px;
+            top: -205px;
+            left: 575px;
+            font-size: 164px;
+            font-size: 16px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        .ambiental {
+            position: relative;
+            border: 6px solid green;
+            color: black;
+            width: 351px;
+            top: 9px;
+            left: 155px;
+            font-size: 16px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        .civil {
+            position: relative;
+            border: 6px solid yellow;
+            color: black;
+            width: 351px;
+            top: -206px;
+            left: 575px;
+            font-size: 16px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        .manufactura {
+            position: relative;
+            border: 6px solid orange;
+            color: black;
+            width: 351px;
+            top: -209px;
+            left: 575px;
+            font-size: 16px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        .redes {
+            position: relative;
+            border: 6px solid blue;
+            color: black;
+            width: 351px;
+            top: 8px;
+            left: 155px;
+            font-size: 16px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+        .enviar {
+            position: relative;
+            top: -205px;
+            color: white;
+            height: 40px;
+            font-size: 18px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif 1
+        }
+        
+        .dir {
+            font-size: 18px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
+        
+        .msj {
+            font-size: 24px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+        }
