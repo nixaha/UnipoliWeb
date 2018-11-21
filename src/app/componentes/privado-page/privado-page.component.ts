@@ -10,6 +10,7 @@ import { finalize } from 'rxjs/operators';
 //plugins angularfire2
 import { Horario } from '../../../commons/horario';
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+import { createUrlResolverWithoutPackagePrefix } from '../../../../node_modules/@angular/compiler';
 //import { AngularFireDatabase} from 'angularfire2/database'; 
 
 @Component({
@@ -26,6 +27,7 @@ export class PrivadoPageComponent implements OnInit {
 
  uploadURL: Observable<string>;
  data:any = '';
+ subirHorarios: any;
 
  private horariosCollection: AngularFirestoreCollection<Horario>;
  horarios: Observable<Horario[]>;
@@ -91,38 +93,40 @@ export class PrivadoPageComponent implements OnInit {
     this.uploadProgress = task.percentageChanges();
 
     // Get notified when the download URL is available
-    task.snapshotChanges().pipe( finalize(() => this.uploadURL = fileRef.getDownloadURL())
+    task.snapshotChanges().pipe( finalize(() => { 
+      this.uploadURL = fileRef.getDownloadURL();
+      this.subirHorarios = '' + fileRef.getDownloadURL().toString();
+      console.log(fileRef.getDownloadURL())
+    })
     ).subscribe();
 
-
     console.log("llego algo", fileRef);
-     /*const id = this.afs.createId();
-     const horario: Horario = { 'img': this.uploadURL };
-     this.horariosCollection.doc(id).set(horario);*/
     
   }
 
   public newHorario(form ) {
-    //const itemsRef = db.list('horarios');
-    //itemsRef.push({ img: 'uploadURL' });
-
-    let data = {
-      img: form.img,
-      carrera: form.carrera
-    }
-    
-      this.firestoreService.createHorario(data).then(() => {
-        console.log('Documento creado exitósamente!');
-        this.newHorarioForm.setValue({
-          img: '',
-          carrera:''
+    this.uploadURL.subscribe(
+      x => { 
+        let data = {
+          img: x,
+          carrera: form.carrera
+        }
+        this.firestoreService.createHorario(data).then(() => {
+          console.log('Documento creado exitósamente!');
+          this.newHorarioForm.setValue({
+            img: x,
+            carrera:''
+          });
+        }, (error) => {
+          console.error(error);
         });
-      }, (error) => {
-        console.error(error);
-      });
+      },
+      err => console.log('Observable error: ' + err),
+      () => console.log('Observable completo')
+    );
+    }
+}
 
-}
-}
   
 
 
