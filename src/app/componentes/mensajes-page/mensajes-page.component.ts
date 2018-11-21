@@ -24,11 +24,11 @@ export class MensajesPageComponent implements OnInit {
   description = '';
   date = '';
   swMsj = true;
-  irtMsj =true;
-  itamMsj =true;
-  pymesMsj =true;
-  civilMsj =true;
-  itmMsj =true; 
+  irtMsj = true;
+  itamMsj = true;
+  pymesMsj = true;
+  civilMsj = true;
+  itmMsj = true;
   Seleccion: boolean;
 
   constructor(private readonly afs: AngularFirestore, public authService: AuthService,
@@ -86,7 +86,7 @@ export class MensajesPageComponent implements OnInit {
       this.flashMensaje.show('Mensaje enviado.',
       {cssClass: 'alert-success', timeout: 4000});
       this.router.navigate(['/msj']); 
-     } else {
+     }else {
       this.flashMensaje.show('Debes seleccionar al menos una carrera.',
         {cssClass: 'alert-danger', timeout: 4000});
         this.router.navigate(['/msj']);
