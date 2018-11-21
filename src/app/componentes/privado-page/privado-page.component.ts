@@ -9,7 +9,9 @@ import { finalize } from 'rxjs/operators';
 
 //plugins angularfire2
 import { Horario } from '../../../commons/horario';
-import {AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore'; 
+import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
+import { createUrlResolverWithoutPackagePrefix } from '../../../../node_modules/@angular/compiler';
+//import { AngularFireDatabase} from 'angularfire2/database'; 
 
 @Component({
   selector: 'app-privado-page',
@@ -20,18 +22,18 @@ import {AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firest
 export class PrivadoPageComponent implements OnInit {
  //imageUrl: string = "/assets/img/default.png";
  //fileToUpload: File = null;
- 
 
  uploadProgress: Observable<number>;
 
  uploadURL: Observable<string>;
+ data:any = '';
+ subirHorarios: any;
 
  private horariosCollection: AngularFirestoreCollection<Horario>;
  horarios: Observable<Horario[]>;
  public newHorarioForm = new FormGroup({
   img: new FormControl(''),
-  carrera: new FormControl('')
-  
+  carrera: new FormControl('') 
 });
 
   constructor(/*private imageService: AuthService,*/ private _storage: AngularFireStorage,
@@ -43,6 +45,7 @@ export class PrivadoPageComponent implements OnInit {
                   carrera:''
                 });
 
+        
                // this.horariosCollection = afs.collection<Horario>('horarios');
               }
 
@@ -90,32 +93,40 @@ export class PrivadoPageComponent implements OnInit {
     this.uploadProgress = task.percentageChanges();
 
     // Get notified when the download URL is available
-    task.snapshotChanges().pipe(
-      finalize(() => this.uploadURL = fileRef.getDownloadURL())
+    task.snapshotChanges().pipe( finalize(() => { 
+      this.uploadURL = fileRef.getDownloadURL();
+      this.subirHorarios = '' + fileRef.getDownloadURL().toString();
+      console.log(fileRef.getDownloadURL())
+    })
     ).subscribe();
 
-     /*const id = this.afs.createId();
-     const horario: Horario = { 'img': this.uploadURL };
-     this.horariosCollection.doc(id).set(horario);*/
-  }
-  public newHorario(form, uploadURL = this.uploadURL) {
-
-    let data = {
-      img: form.img,
-      carrera: form.carrera
-    }
+    console.log("llego algo", fileRef);
     
-      this.firestoreService.createHorario(data).then(() => {
-        console.log('Documento creado exitósamente!');
-        this.newHorarioForm.setValue({
-          img: '',
-          carrera:''
-        });
-      }, (error) => {
-        console.error(error);
-      });
-    }
   }
+
+  public newHorario(form ) {
+    this.uploadURL.subscribe(
+      x => { 
+        let data = {
+          img: x,
+          carrera: form.carrera
+        }
+        this.firestoreService.createHorario(data).then(() => {
+          console.log('Documento creado exitósamente!');
+          this.newHorarioForm.setValue({
+            img: x,
+            carrera:''
+          });
+        }, (error) => {
+          console.error(error);
+        });
+      },
+      err => console.log('Observable error: ' + err),
+      () => console.log('Observable completo')
+    );
+    }
+}
+
   
 
 
