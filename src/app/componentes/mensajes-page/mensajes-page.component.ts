@@ -88,7 +88,7 @@ export class MensajesPageComponent implements OnInit {
        this.Seleccion = false; 
       this.flashMensaje.show('Mensaje enviado.',
       {cssClass: 'alert-success', timeout: 4000});
-      this.router.navigate(['/msj']); 
+      this.router.navigate(['/home']); 
      }else {
       this.flashMensaje.show('Debes seleccionar al menos una carrera.',
         {cssClass: 'alert-danger', timeout: 4000});
