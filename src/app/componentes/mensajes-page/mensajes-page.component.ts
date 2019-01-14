@@ -8,13 +8,16 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {FlashMessagesService} from 'angular2-flash-messages';
 
-export interface Mensaje { titulo: string; descripcion: string; fecha: Date;}
+export interface Mensaje { titulo: string; descripcion: string; fecha: Date; foto: string;}
+
+const ruta: string = 'https://firebasestorage.googleapis.com/v0/b/appunipoli.appspot.com/o/mensaje.png?alt=media&token=c6dc46cc-6df4-455a-96e0-3aac2502778d';
 
 @Component({
   selector: 'app-mensajes-page',
   templateUrl: './mensajes-page.component.html',
   styleUrls: ['./mensajes-page.component.scss']
 })
+
 export class MensajesPageComponent implements OnInit {
 
   // private mensajesCollection: AngularFirestoreCollection<Mensaje>;
@@ -52,32 +55,32 @@ export class MensajesPageComponent implements OnInit {
 
      if (this.swMsj === true){
      const id = this.afs.createId();
-     this.afs.collection('mensajesSW').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date} );
+     this.afs.collection('MensajesSoftware').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date, foto:ruta} );
      this.Seleccion = true; 
     }
     if (this.irtMsj === true){
       const id = this.afs.createId();
-      this.afs.collection('mensajesIrt').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date} );
+      this.afs.collection('MensajesTelematica').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date, foto:ruta} );
       this.Seleccion = true;  
     }
      if (this.itamMsj === true){
       const id = this.afs.createId();
-      this.afs.collection('mensajesItam').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date} );
+      this.afs.collection('MensajeAmbiental').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date, foto:ruta} );
       this.Seleccion = true; 
     }
      if (this.pymesMsj === true){
       const id = this.afs.createId();
-      this.afs.collection('mensajesPymes').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date} );
+      this.afs.collection('MensajesPymes').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date, foto:ruta} );
       this.Seleccion = true;  
     }
      if (this.civilMsj === true){
       const id = this.afs.createId();
-      this.afs.collection('mensajesCivil').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date} );
+      this.afs.collection('MensajesCivil').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date, foto:ruta} );
       this.Seleccion = true;  
     }
      if (this.itmMsj === true){
       const id = this.afs.createId();
-      this.afs.collection('mensajesItm').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date} );
+      this.afs.collection('MensajesManufactura').doc(id).set({titulo : this.title, descripcion : this.description, fecha: date, foto:ruta} );
       this.Seleccion = true; 
     }
 
@@ -85,7 +88,7 @@ export class MensajesPageComponent implements OnInit {
        this.Seleccion = false; 
       this.flashMensaje.show('Mensaje enviado.',
       {cssClass: 'alert-success', timeout: 4000});
-      this.router.navigate(['/msj']); 
+      this.router.navigate(['/home']); 
      }else {
       this.flashMensaje.show('Debes seleccionar al menos una carrera.',
         {cssClass: 'alert-danger', timeout: 4000});

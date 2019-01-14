@@ -90,4 +90,7 @@ uploadTask.cancel();*/
   send(){
     this.router.navigateByUrl('hor');
   }
+  send1(){
+    this.router.navigateByUrl('msj');
+  }
 }

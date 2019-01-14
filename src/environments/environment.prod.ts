@@ -1,11 +1,11 @@
 export const environment = {
   production: true,
   firebaseConfig: {
-    apiKey: "AIzaSyDT1UH0mfqM5OaLiFexNuvnPUKLWxFMLh8",
-    authDomain: "graduacion-49144.firebaseapp.com",
-    databaseURL: "https://graduacion-49144.firebaseio.com",
-    projectId: "graduacion-49144",
-    storageBucket: "graduacion-49144.appspot.com",
-    messagingSenderId: "168579140580"
+    apiKey: "AIzaSyDfd55hT8n0csz0S9I462oQIsEVHN0oSgM",
+    authDomain: "appunipoli.firebaseapp.com",
+    databaseURL: "https://appunipoli.firebaseio.com",
+    projectId: "appunipoli",
+    storageBucket: "appunipoli.appspot.com",
+    messagingSenderId: "748525573115"
   }
 };
